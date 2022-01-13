@@ -6,11 +6,11 @@ import './pokedex.css';
 class Pokedex extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {pokemonIndex: 0, filteredType: 'all'};
+    this.state = { pokemonIndex: 0, filteredType: 'all' };
   }
 
   filterPokemons(filteredType) {
-    this.setState({filteredType, pokemonIndex: 0});
+    this.setState({ filteredType, pokemonIndex: 0 });
   }
 
   nextPokemon(numberOfPokemons) {
@@ -20,8 +20,8 @@ class Pokedex extends React.Component {
   }
 
   fetchFilteredPokemons() {
-    const {pokemons} = this.props;
-    const {filteredType} = this.state;
+    const { pokemons } = this.props;
+    const { filteredType } = this.state;
 
     return pokemons.filter(pokemon => {
       if (filteredType === 'all') return true;
@@ -30,19 +30,19 @@ class Pokedex extends React.Component {
   }
 
   fetchPokemonTypes() {
-    const {pokemons} = this.props;
+    const { pokemons } = this.props;
 
-    return [...new Set(pokemons.reduce((types, {type}) => [...types, type], []))];
+    return [...new Set(pokemons.reduce((types, { type }) => [...types, type], []))];
   }
 
   render() {
     const filteredPokemons = this.fetchFilteredPokemons();
     const pokemonTypes = this.fetchPokemonTypes();
     const pokemon = filteredPokemons[this.state.pokemonIndex];
-
+    const { favoritos } = this.props;
     return (
       <div className="pokedex">
-        <Pokemon pokemon={pokemon} />
+        <Pokemon pokemon={pokemon} favoritos={favoritos} />
         <div className="pokedex-buttons-panel">
           <Button
             onClick={() => this.filterPokemons('all')}

@@ -1,3 +1,35 @@
 .App {
   text-align: center;
 }
+
+a {
+  padding: 0px 10px;
+  text-decoration: none;
+}
+
+.area-map {
+  margin: 20px 50px;
+  width: 300px;
+}
+
+.about-container {
+  max-width: 60%;
+  margin: auto;
+  margin-top: 80px;
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+.about-container p {
+  margin-bottom: 30px;
+  font-size: 18px;
+}
+
+#h1-error {
+  color: red;
+}
+
+i {
+  color: purple;
+  font-size: 20px;
+}
